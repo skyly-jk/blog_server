@@ -1,11 +1,13 @@
+package top.alidao;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BlogServerApplication {
+public class BlogApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(BlogServerApplication.class, args);
+        SpringApplication.run(BlogApplication.class, args);
     }
 
 }

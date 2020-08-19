@@ -1,10 +1,10 @@
-package com.example.blog_server;
+package top.alidao.blog;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BlogServerApplicationTests {
+class BlogApplicationTests {
 
     @Test
     void contextLoads() {
