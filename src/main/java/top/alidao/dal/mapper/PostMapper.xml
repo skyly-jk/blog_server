@@ -15,12 +15,24 @@
         SELECT *
         FROM tag_v
     </select>
-    <insert id="insertCategory" useGeneratedKeys="true" keyProperty="id">
+    <insert id="insertCategory"  useGeneratedKeys="true" keyProperty="id" >
         insert into category(name)
         values (#{name})
     </insert>
-    <insert id="insertTag">
+    <insert id="insertTag" useGeneratedKeys="true" keyProperty="id" >
         insert into tag(name)
         values (#{name})
+    </insert>
+    <insert id="insertPost" useGeneratedKeys="true" keyProperty="id">
+        INSERT
+        INTO post(title,author,content,category_id)
+        VALUES (#{title},#{author},#{content},#{categoryID})
+    </insert>
+    <insert id="insertRelation">
+        INSERT INTO relation_ship(post_id,tag_id)
+        VALUES
+        <foreach collection="tagIDs" item="tagID" separator="," index="index">
+            (#{id},#{tagID})
+        </foreach>
     </insert>
 </mapper>

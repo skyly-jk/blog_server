@@ -4,6 +4,7 @@ import top.alidao.dal.pojo.CategoryV;
 import top.alidao.dal.pojo.PostInfoV;
 import top.alidao.dal.pojo.TagV;
 import top.alidao.entity.Message;
+import top.alidao.entity.Post;
 import top.alidao.entity.Result;
 import top.alidao.request.PostRequest;
 
@@ -15,4 +16,5 @@ public interface PostService {
     public Result<List<TagV>> getTag();
     public Message addCategory(String name);
     public Message addTag(String name);
+    public Message addPost(Post post);
 }

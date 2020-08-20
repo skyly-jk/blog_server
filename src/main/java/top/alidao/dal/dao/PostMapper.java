@@ -6,6 +6,8 @@ import top.alidao.dal.pojo.CategoryV;
 import top.alidao.dal.pojo.PostInfoV;
 import top.alidao.dal.pojo.TagV;
 import top.alidao.entity.Category;
+import top.alidao.entity.Post;
+import top.alidao.entity.Tag;
 import top.alidao.request.PostRequest;
 
 
@@ -17,5 +19,7 @@ public interface PostMapper {
     public List<CategoryV> selectCategory();
     public List<TagV> selectTag();
     public int insertCategory(Category category);
-    public int insertTag(String name);
+    public int insertTag(Tag tag);
+    public int insertPost(Post post);
+    public int insertRelation(long id,long[] tagIDs);
 }

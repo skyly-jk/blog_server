@@ -6,10 +6,7 @@ import top.alidao.dal.dao.PostMapper;
 import top.alidao.dal.pojo.CategoryV;
 import top.alidao.dal.pojo.PostInfoV;
 import top.alidao.dal.pojo.TagV;
-import top.alidao.entity.Category;
-import top.alidao.entity.Message;
-import top.alidao.entity.Page;
-import top.alidao.entity.Result;
+import top.alidao.entity.*;
 import top.alidao.request.PostRequest;
 import top.alidao.service.PostService;
 
@@ -52,6 +49,18 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public Message addTag(String name) {
-        return null;
+        Message message=new Message();
+        Tag tag=new Tag(name);
+        postMapper.insertTag(tag);
+        message.setData(tag.getId());
+        return message;
+    }
+
+    @Override
+    public Message addPost(Post post) {
+        Message message=new Message();
+        postMapper.insertPost(post);
+        postMapper.insertRelation(post.getId(),post.getTagIDs());
+        return message;
     }
 }

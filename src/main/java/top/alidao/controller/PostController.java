@@ -1,6 +1,7 @@
 package top.alidao.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.alidao.entity.Message;
@@ -21,8 +22,8 @@ public class PostController {
         return postService.getPost(request);
     }
     @RequestMapping("/addPost")
-    private Message addPost(Post request){
-        return null;
+    private Message addPost(@RequestBody(required = false) Post request){
+        return postService.addPost(request);
     }
     @RequestMapping("/getCategory")
     private Result getCategory(){
@@ -38,6 +39,6 @@ public class PostController {
     }
     @RequestMapping("/addTag")
     private Message addTag(String name){
-        return null;
+        return postService.addTag(name);
     }
 }
