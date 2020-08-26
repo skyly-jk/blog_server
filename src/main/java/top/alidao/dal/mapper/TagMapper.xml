@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.alidao.dal.dao.TagMapper">
+    <select id="selectTag" resultType="top.alidao.dal.pojo.TagV" parameterType="top.alidao.request.TagRequest">
+        SELECT *
+        FROM tag_v
+        <where>
+            <if test="name!=null&amp;&amp;name.trim().length!=0">
+                name like concat('%',#{name},'%')
+            </if>
+        </where>
+    </select>
+    <insert id="addTag" parameterType="tag" useGeneratedKeys="true" keyProperty="id">
+        insert into category(name)
+        values (#{name})
+    </insert>
+    <update id="updateTag" parameterType="tag">
+
+    </update>
+</mapper>

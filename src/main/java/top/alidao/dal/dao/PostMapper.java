@@ -13,7 +13,6 @@ import top.alidao.request.PostRequest;
 
 import java.util.List;
 
-@Mapper
 public interface PostMapper {
     public List<PostInfoV> selectPost(PostRequest request);
     public List<CategoryV> selectCategory();
