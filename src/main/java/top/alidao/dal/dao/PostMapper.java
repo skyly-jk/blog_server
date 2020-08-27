@@ -15,10 +15,7 @@ import java.util.List;
 
 public interface PostMapper {
     public List<PostInfoV> selectPost(PostRequest request);
-    public List<CategoryV> selectCategory();
-    public List<TagV> selectTag();
-    public int insertCategory(Category category);
-    public int insertTag(Tag tag);
     public int insertPost(Post post);
     public int insertRelation(long id,long[] tagIDs);
+    public PostInfoV selectPostById(long id);
 }

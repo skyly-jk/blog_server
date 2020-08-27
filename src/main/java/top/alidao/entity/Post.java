@@ -12,4 +12,5 @@ public class Post {
     private String content;
     private long categoryID;
     private long[] tagIDs;
+    private String pureText;
 }

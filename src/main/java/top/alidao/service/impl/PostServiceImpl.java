@@ -1,6 +1,7 @@
 package top.alidao.service.impl;
 
 import com.github.pagehelper.PageHelper;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import top.alidao.dal.dao.PostMapper;
 import top.alidao.dal.pojo.CategoryV;
@@ -25,40 +26,18 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public Result<List<CategoryV>> getCategory() {
-        List<CategoryV> categoryVList=postMapper.selectCategory();
-        Result result=new Result(categoryVList);
-        return result;
-    }
-
-    @Override
-    public Result<List<TagV>> getTag() {
-        List<TagV> tagVList=postMapper.selectTag();
-        Result result=new Result(tagVList);
-        return result;
-    }
-
-    @Override
-    public Message addCategory(String name) {
-        Message message=new Message();
-        Category category=new Category(name);
-        postMapper.insertCategory(category);
-        message.setData(category.getId());
-        return message;
-    }
-
-    @Override
-    public Message addTag(String name) {
-        Message message=new Message();
-        Tag tag=new Tag(name);
-        postMapper.insertTag(tag);
-        message.setData(tag.getId());
+    public Message<PostInfoV> getPostById(long id) {
+        Message<PostInfoV> message=new Message<>();
+        PostInfoV postInfoV=postMapper.selectPostById(id);
+        message.setStatus(postInfoV==null?0:1);
+        message.setData(postInfoV);
         return message;
     }
 
     @Override
     public Message addPost(Post post) {
         Message message=new Message();
+
         postMapper.insertPost(post);
         postMapper.insertRelation(post.getId(),post.getTagIDs());
         return message;

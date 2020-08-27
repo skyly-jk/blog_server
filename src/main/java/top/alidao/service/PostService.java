@@ -12,9 +12,6 @@ import java.util.List;
 
 public interface PostService {
     public Result<List<PostInfoV>> getPost(PostRequest request);
-    public Result<List<CategoryV>> getCategory();
-    public Result<List<TagV>> getTag();
-    public Message addCategory(String name);
-    public Message addTag(String name);
+    public Message<PostInfoV> getPostById(long id);
     public Message addPost(Post post);
 }

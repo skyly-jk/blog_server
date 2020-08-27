@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface CategoryService {
     public Result<List<CategoryV>> getCategory(CategoryRequest request);
-    public Message addCategory(Category Category);
-    public Message updateCategory(Category Category);
-    public Message deleteCategory(Category Category);
+    public Message addCategory(Category category);
+    public Message updateCategory(Category category);
+    public Message deleteCategory(Category category);
 }

@@ -1,6 +1,7 @@
 package top.alidao.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,20 +26,8 @@ public class PostController {
     private Message addPost(@RequestBody(required = false) Post request){
         return postService.addPost(request);
     }
-    @RequestMapping("/getCategory")
-    private Result getCategory(){
-        return postService.getCategory();
-    }
-    @RequestMapping("/addCategory")
-    private Message addCategory(String name){
-        return postService.addCategory(name);
-    }
-    @RequestMapping("/getTag")
-    private Result getTag(){
-        return postService.getTag();
-    }
-    @RequestMapping("/addTag")
-    private Message addTag(String name){
-        return postService.addTag(name);
+    @RequestMapping("/{id}")
+    private Message getOnePost(@PathVariable long id){
+        return postService.getPostById(id);
     }
 }
