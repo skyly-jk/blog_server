@@ -26,4 +26,9 @@
         from tag
         where id=#{id}
     </delete>
+    <delete id="deleteRelation">
+        delete
+        from relation_ship
+        where tag_id=#{id}
+    </delete>
 </mapper>

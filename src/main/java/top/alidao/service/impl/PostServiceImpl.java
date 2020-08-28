@@ -37,9 +37,35 @@ public class PostServiceImpl implements PostService {
     @Override
     public Message addPost(Post post) {
         Message message=new Message();
-
         postMapper.insertPost(post);
         postMapper.insertRelation(post.getId(),post.getTagIDs());
+        message.setStatus(1);
         return message;
+    }
+
+    @Override
+    public Message updatePost(Post post) {
+        Message message=new Message();
+        postMapper.updatePost(post);
+        postMapper.deleteRelation(post.getId());
+        postMapper.insertRelation(post.getId(),post.getTagIDs());
+        message.setStatus(1);
+        return message;
+    }
+
+    @Override
+    public Message deletePost(long id) {
+        Message message=new Message();
+        postMapper.deletePost(id);
+        postMapper.deleteRelation(id);
+        message.setStatus(1);
+        return message;
+    }
+
+    @Override
+    public Result getArchive() {
+        Result result=new Result();
+        result.setData(postMapper.selectArchive());
+        return result;
     }
 }

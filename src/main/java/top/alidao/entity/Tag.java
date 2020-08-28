@@ -7,7 +7,7 @@ import lombok.Data;
  */
 @Data
 public class Tag {
-    private String id;
+    private long id;
     private String name;
 
     public Tag() {
@@ -17,7 +17,7 @@ public class Tag {
         this.name = name;
     }
 
-    public Tag(String id, String name) {
+    public Tag(long id, String name) {
         this.id = id;
         this.name = name;
     }

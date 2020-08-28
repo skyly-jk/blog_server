@@ -14,4 +14,7 @@ public interface PostService {
     public Result<List<PostInfoV>> getPost(PostRequest request);
     public Message<PostInfoV> getPostById(long id);
     public Message addPost(Post post);
+    public Message updatePost(Post post);
+    public Message deletePost(long id);
+    public Result getArchive();
 }

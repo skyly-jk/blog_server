@@ -30,4 +30,16 @@ public class PostController {
     private Message getOnePost(@PathVariable long id){
         return postService.getPostById(id);
     }
+    @RequestMapping("/updatePost")
+    private Message updatePost(@RequestBody(required = false) Post post){
+        return postService.updatePost(post);
+    }
+    @RequestMapping("/deletePost")
+    private Message deletePost(long id){
+        return postService.deletePost(id);
+    }
+    @RequestMapping("/getArchive")
+    public Result getArchive(){
+        return postService.getArchive();
+    }
 }

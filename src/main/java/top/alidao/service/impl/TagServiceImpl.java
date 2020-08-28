@@ -47,6 +47,7 @@ public class TagServiceImpl implements TagService {
     public Message deleteTag(Tag tag) {
         Message message=new Message();
         tagMapper.deleteTag(tag);
+        tagMapper.deleteRelation(tag.getId());
         return message;
     }
 }

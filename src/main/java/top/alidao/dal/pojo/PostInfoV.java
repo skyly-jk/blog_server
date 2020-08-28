@@ -12,8 +12,10 @@ public class PostInfoV {
     private String content;
     private Date createDate;
     private int readCount;
+    private String pureText;
     private long categoryId;
     private String categoryName;
     private String tagIDs;
     private String tagNames;
+    private int draft;
 }

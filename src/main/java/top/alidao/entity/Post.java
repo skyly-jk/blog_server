@@ -13,4 +13,5 @@ public class Post {
     private long categoryID;
     private long[] tagIDs;
     private String pureText;
+    private int draft;
 }

@@ -2,6 +2,7 @@ package top.alidao.dal.dao;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import top.alidao.dal.pojo.Archive;
 import top.alidao.dal.pojo.CategoryV;
 import top.alidao.dal.pojo.PostInfoV;
 import top.alidao.dal.pojo.TagV;
@@ -18,4 +19,8 @@ public interface PostMapper {
     public int insertPost(Post post);
     public int insertRelation(long id,long[] tagIDs);
     public PostInfoV selectPostById(long id);
+    public int updatePost(Post post);
+    public int deletePost(long id);
+    public int deleteRelation(long id);
+    public List<Archive> selectArchive();
 }

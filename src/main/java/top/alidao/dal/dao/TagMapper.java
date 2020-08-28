@@ -14,4 +14,5 @@ public interface TagMapper {
     public int addTag(Tag tag);
     public int updateTag(Tag tag);
     public int deleteTag(Tag tag);
+    public int deleteRelation(long id);
 }

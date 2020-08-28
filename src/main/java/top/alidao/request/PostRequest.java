@@ -7,4 +7,5 @@ public class PostRequest extends PageRequset{
     private String keyword;
     private long categoryID;
     private long tagID;
+    private int draft;
 }

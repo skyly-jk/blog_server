@@ -6,16 +6,25 @@
     <select id="selectPost" resultType="top.alidao.dal.pojo.PostInfoV" parameterType="top.alidao.request.PostRequest">
         select *
         from post_info_v
+        <where>
+            <if test="categoryID!=0">
+                category_id = #{categoryID}
+            </if>
+        </where>
     </select>
     <select id="selectPostById" resultType="top.alidao.dal.pojo.PostInfoV">
         select *
         from post_info_v
         where id = #{id}
     </select>
+    <select id="selectArchive" resultType="top.alidao.dal.pojo.Archive">
+        select *
+        from archive_v
+    </select>
     <insert id="insertPost" useGeneratedKeys="true" keyProperty="id">
         INSERT
-        INTO post(title,author,content,category_id)
-        VALUES (#{title},#{author},#{content},#{categoryID})
+        INTO post(title,author,content,category_id,pure_text,draft)
+        VALUES (#{title},#{author},#{content},#{categoryID},#{pureText},draft)
     </insert>
     <insert id="insertRelation">
         INSERT INTO relation_ship(post_id,tag_id)
@@ -24,4 +33,23 @@
             (#{id},#{tagID})
         </foreach>
     </insert>
+    <update id="updatePost" parameterType="top.alidao.entity.Post">
+        update post
+        set title=#{title},
+        content=#{content},
+        pure_text=#{pureText},
+        category_id=#{categoryID},
+        draft=#{draft}
+        where id=#{id}
+    </update>
+    <delete id="deletePost">
+        delete
+        from post
+        where id=#{id}
+    </delete>
+    <delete id="deleteRelation">
+        delete
+        from relation_ship
+        where post_id=#{id}
+    </delete>
 </mapper>
